@@ -12,7 +12,8 @@
     "lint": "yarn lint:js && yarn lint:style",
     "test": "yarn test:unit && yarn test:e2e",
     "test:unit": "cross-env TEST=unit ava ./test/specs/**/*",
-    "test:e2e": "cross-env TEST=e2e ava ./test/e2e/**/*"
+    "test:e2e": "cross-env TEST=e2e ava ./test/e2e/**/*",
+    "deploy": "./deploy.sh"
   },
   "dependencies": {
     "@nuxt/content": "^1.8.1",
