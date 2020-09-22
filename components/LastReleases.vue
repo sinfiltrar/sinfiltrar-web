@@ -19,7 +19,6 @@
                 </div>
                 <template v-slot:footer>
                     <b-link href="#" class="card-link">Leer más</b-link>
-                        <b-icon-arrow-up></b-icon-arrow-up>
                 </template>
             </b-card>
         </b-card-group>
@@ -73,8 +72,18 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss" scoped>
-.release {
-    text-align: 'left';
+<style lang="scss">
+.card-header {
+    background: none;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.card-body {
+    padding-bottom: 0;
+}
+.card-footer {
+    background: none;
+    border-top: none;
+    padding-top: 0;
 }
 </style>

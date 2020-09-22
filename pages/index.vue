@@ -1,52 +1,5 @@
 <template>
-  <div class="container">
-      <div>
-          <header class="pt-5 pb-5">
-              <h1 class="title">sinfiltr.ar</h1>
-              <h2>
-                  Todas las noticias de los organismos oficiales en un sólo lugar
-              </h2>
-          </header>
-          <hr class="mt-3 mb-5"/>
-          <main>
-              <LastReleases />
-          </main>
-      </div>
-  </div>
+    <div>
+        <LastReleases />
+    </div>
 </template>
-
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
-})
-</script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-</style>
