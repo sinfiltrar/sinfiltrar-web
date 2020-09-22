@@ -30,7 +30,7 @@ export default Vue.extend({
     window.removeEventListener('scroll', this.handleScroll);
   },
   methods: {
-    handleScroll (event) {
+    handleScroll (event: any) {
       this.scrolled = document.body.scrollTop > 80 || document.documentElement.scrollTop > 80
     },
   },
