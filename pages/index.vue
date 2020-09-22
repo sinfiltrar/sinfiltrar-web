@@ -1,18 +1,25 @@
 <template>
   <div class="container">
-    <main>
-      <h1 class="title">sinfiltr.ar</h1>
-      <h2>
-          Todas las noticias de los organismos oficiales en un sólo lugar
-      </h2>
-    </main>
+      <div>
+          <header class="pt-5 pb-5">
+              <h1 class="title">sinfiltr.ar</h1>
+              <h2>
+                  Todas las noticias de los organismos oficiales en un sólo lugar
+              </h2>
+          </header>
+          <hr class="mt-3 mb-5"/>
+          <main>
+              <LastReleases />
+          </main>
+      </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({})
+export default Vue.extend({
+})
 </script>
 
 <style>
