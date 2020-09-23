@@ -12,7 +12,7 @@
                 :title="release.title"
                 :header="release.org"
                 class="release"
-                @click="$router.push({path: '/comunicados/slug/'})"
+                @click="$router.push({name: 'comunicados-slug', params: {slug: release.slug}})"
                 v-for="release in releases"
                 >
                 <b-card-text>
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <template v-slot:footer>
-                    <nuxt-link to="/comunicados/slug/" class="card-link">Leer más</nuxt-link>
+                    <nuxt-link :to="{name: 'comunicados-slug', params: {slug: release.slug}}" class="card-link">Leer más</nuxt-link>
                 </template>
             </b-card>
         </b-card-group>
