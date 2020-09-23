@@ -165,4 +165,8 @@ header {
     }
 }
 
+.spinner-border-sm {
+  border-width: 0.08em;
+}
+
 </style>

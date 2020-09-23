@@ -3,7 +3,10 @@
         <h3 class="mb-3">
             Últimos comunicados
         </h3>
-          <p v-if="$fetchState.pending">Cargando...</p>
+        <p class="d-flex align-items-center" v-if="$fetchState.pending">
+            <b-spinner small class="mr-1" label="Loading..."></b-spinner>
+            Cargando...
+        </p>
         <b-card-group columns class="text-left">
             <b-card
                 :title="release.title"
