@@ -62,6 +62,12 @@ export default Vue.extend({
     padding-bottom: 0;
     color: #666;
 }
+.card-text {
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
 .card-body {
     padding-bottom: 0;
 }
