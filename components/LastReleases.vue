@@ -4,7 +4,7 @@
             Últimos comunicados
         </h3>
         <p class="d-flex align-items-center" v-if="$fetchState.pending">
-            <b-spinner small class="mr-1" label="Loading..."></b-spinner>
+            <b-spinner small class="mr-1" label="Cargando..."></b-spinner>
             Cargando...
         </p>
         <b-card-group columns class="text-left">
@@ -12,17 +12,18 @@
                 :title="release.title"
                 :header="release.org"
                 class="release"
+                @click="$router.push({path: '/comunicados/slug/'})"
                 v-for="release in releases"
                 >
                 <b-card-text>
-                    {{ release.content }}
+                        {{ release.content }}
                 </b-card-text>
                 <div class="media" v-if="release.media">
                     <div :class="'media-' + media.type" v-for="media in release.media">
                     </div>
                 </div>
                 <template v-slot:footer>
-                    <b-link href="#" class="card-link">Leer más</b-link>
+                    <nuxt-link to="/comunicados/slug/" class="card-link">Leer más</nuxt-link>
                 </template>
             </b-card>
         </b-card-group>
@@ -59,6 +60,7 @@ export default Vue.extend({
     background: none;
     border-bottom: none;
     padding-bottom: 0;
+    color: #666;
 }
 .card-body {
     padding-bottom: 0;

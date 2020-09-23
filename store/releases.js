@@ -1,10 +1,14 @@
 export const state = () => ({
-  latest: []
+  latest: [],
+  current: undefined,
 })
 
 export const mutations = {
   setLatest(state, releases) {
     state.latest = releases;
+  },
+  setCurrent(state, current) {
+    state.current = current;
   },
 }
 
@@ -44,7 +48,23 @@ export const actions = {
        setTimeout(() => {
          commit('setLatest', new Array(4).fill(sampleReleases).flat())
          resolve()
-      }, 3000)
+      }, 500)
+    })
+
+    /*
+    return axios.get('http://my-api/stars').then(res => {
+      // transform res.data
+      commit('setLatest', res.data)
+    })
+    */
+  },
+  getRelease({ commit }, slug) {
+    return new Promise((resolve, reject) => {
+       commit('setCurrent', undefined)
+       setTimeout(() => {
+         commit('setCurrent', sampleReleases[0])
+         resolve()
+      }, 500)
     })
 
     /*

@@ -2,7 +2,10 @@
   <div>
      <header :class="{slim: scrolled}">
          <div class="container">
-             <h1 class="title">sinfiltr.ar <small>(beta)</small></h1>
+           <h1 class="title">
+             <nuxt-link to="/">sinfiltr.ar</nuxt-link>
+             <small>(beta)</small>
+           </h1>
              <h2 class="subtitle">
                  Todas las noticias de los organismos oficiales en un sólo lugar
              </h2>
@@ -85,9 +88,28 @@ main {
   display: block;
   font-weight: 200;
   font-size: 100px;
-  color: #fff;
   letter-spacing: 1px;
   transition: 0.4s;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.4s;
+    display: inline-block;
+
+    &::after {
+      content: '';
+      width: 0;
+      height: 3px;
+      display: block;
+      background: #fff;
+      transition: 300ms;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
 }
 
 .title small {
@@ -135,6 +157,9 @@ header {
             small {
                 font-size: 16px;
                 margin-left: 0;
+            }
+            a::after {
+              height: 1px;
             }
         }
         .subtitle {
