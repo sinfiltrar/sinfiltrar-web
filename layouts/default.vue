@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="d-flex flex-column h-100">
      <header :class="{slim: scrolled}">
          <div class="container">
            <h1 class="title">
@@ -14,6 +14,20 @@
      <main :class="{container: true, pad: !scrolled}">
          <Nuxt />
     </main>
+    <footer>
+      <div class="container d-flex">
+        <div class="footer-logo mr-auto">&copy; 2020 sinfiltr.ar</div>
+        <div class="footer-nav d-flex">
+          <a href="mailto:info@sinfiltr.ar">
+            Contacto
+          </a>
+          <a href="https://github.com/sinfiltrar/">
+            Ver en
+            <img src="~/assets/img/Github_Logo.png" />
+          </a>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -63,24 +77,21 @@ html {
   margin: 0;
 }
 
+html, body, #__nuxt, #__layout {
+  height: 100%;
+}
+
 body {
    font-family: 'Open Sans', sans-serif;
 }
 
 main {
-  min-height: 100vh;
-
-  /*
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  */
-
-    transition: 0.8s;
-    padding-top: 9rem;
-    &.pad {
-        padding-top: 18rem;
-    }
+  transition: 0.8s;
+  padding-top: 9rem;
+  flex: 1 0 auto;
+  &.pad {
+    padding-top: 18rem;
+  }
 }
 
 .title {
@@ -188,6 +199,28 @@ header {
             padding-top: 2rem;
         }
     }
+}
+
+footer {
+  flex-shrink: 0;
+  background-color: #F3F3F3;
+  line-height: 3rem;
+  .footer-nav {
+    font-size: 14px;
+    a {
+      color: #333;
+      margin-left: 2rem;
+      text-decoration: none;
+    }
+  }
+  .footer-logo {
+    font-family: 'Dosis', sans-serif;
+    font-weight: 200;
+  }
+  img {
+    height: 1.5rem;
+    margin-top: -3px;
+  }
 }
 
 .spinner-border-sm {
