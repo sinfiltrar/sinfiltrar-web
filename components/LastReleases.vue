@@ -16,7 +16,7 @@
                 v-for="release in releases"
                 >
                 <b-card-text>
-                        {{ release.content }}
+                        {{ release.shortText }}
                 </b-card-text>
                 <div class="media" v-if="release.media">
                     <div :class="'media-' + media.type" v-for="media in release.media">

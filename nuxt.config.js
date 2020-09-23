@@ -43,10 +43,17 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+
+    // https://www.npmjs.com/package/@nuxtjs/markdownit
+    '@nuxtjs/markdownit',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
+
+  markdownit: {
+    injected: true
+  },
 
   // Content module configuration (https://go.nuxtjs.dev/content-config)
   content: {},

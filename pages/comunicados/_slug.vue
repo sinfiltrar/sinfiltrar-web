@@ -4,7 +4,7 @@
             <b-spinner small class="mr-1" label="Cargando..."></b-spinner>
             Cargando...
         </p>
-        <div class="text-justify" v-if="release">
+        <div class="text-justify content m-auto" v-if="release">
           <div class="info d-flex mb-4">
             <div class="mr-auto">
               {{ release.org }}
@@ -14,11 +14,9 @@
             </div>
           </div>
           <h3 class="mb-3">
-            {{ release.title }}
+              {{ release.title }}
           </h3>
-          <div class="content">
-            {{ release.content }}
-          </div>
+          <div v-html="$md.render(release.content)"></div>
         </div>
     </div>
 </template>
@@ -46,5 +44,13 @@ h3 {
 
 .info {
   font-size: 18px;
+}
+
+.content {
+    max-width: 50rem;
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
 }
 </style>

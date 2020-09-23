@@ -203,7 +203,7 @@ header {
 
 footer {
   flex-shrink: 0;
-  background-color: #F3F3F3;
+  background-color: #F3F3F4;
   line-height: 3rem;
   .footer-nav {
     font-size: 14px;
