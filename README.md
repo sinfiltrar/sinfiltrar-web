@@ -5,6 +5,9 @@ Todas las noticias de los organismos oficiales en un sólo lugar.
 # Setup
 
 ```bash
+# copy sample .env and modify as desired
+$ cp .env.example .env
+
 # install dependencies
 $ yarn install
 

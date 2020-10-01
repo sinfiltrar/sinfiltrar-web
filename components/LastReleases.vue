@@ -11,12 +11,13 @@
             <b-card
                 :title="release.title"
                 :header="release.org"
-                class="release"
+                :key="index"
                 @click="$router.push({name: 'comunicados-slug', params: {slug: release.slug}})"
-                v-for="release in releases"
+                class="release"
+                v-for="(release, index) in releases"
                 >
                 <b-card-text>
-                        {{ release.shortText }}
+                    {{ release.short_text }}
                 </b-card-text>
                 <div class="media" v-if="release.media">
                     <div :class="'media-' + media.type" v-for="media in release.media">

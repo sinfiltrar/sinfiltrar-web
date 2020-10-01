@@ -39,6 +39,7 @@ export default {
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
@@ -63,5 +64,16 @@ export default {
   router: {
     base: '/',
     trailingSlash: true
+  },
+
+  axios: {
+    proxy: true,
+  },
+  proxy: {
+    '/api/': {
+      target: process.env.NODE_ENV !== 'production' ?  process.env.API_URL_DEV : process.env.API_URL,
+      pathRewrite: {'^/api/': ''},
+      changeOrigin: true
+    }
   },
 }
