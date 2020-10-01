@@ -67,13 +67,6 @@ export default {
   },
 
   axios: {
-    proxy: true,
-  },
-  proxy: {
-    '/api/': {
-      target: process.env.NODE_ENV !== 'production' ?  process.env.API_URL_DEV : process.env.API_URL,
-      pathRewrite: {'^/api/': ''},
-      changeOrigin: true
-    }
+    baseURL: process.env.NODE_ENV !== 'production' ?  process.env.API_URL_DEV : process.env.API_URL,
   },
 }
