@@ -42,13 +42,19 @@ export default Vue.extend({
   },
   created () {
     window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('resize', this.handleScroll);
   },
   destroyed () {
     window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('resize', this.handleScroll);
   },
   methods: {
     handleScroll (event: any) {
-      this.scrolled = document.body.scrollTop > 80 || document.documentElement.scrollTop > 80
+      if (window.innerWidth < 576) {
+        this.scrolled = false
+      } else {
+        this.scrolled = document.body.scrollTop > 80 || document.documentElement.scrollTop > 80
+      }
     },
   },
 })
@@ -127,7 +133,6 @@ main {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 36px;
-  margin-left: -20px;
   color: #6ABEF7;
   transition: 0.4s;
 }
@@ -151,14 +156,8 @@ main {
 
 header {
     background-color: #209CEE;
-    overflow: hidden;
     transition: 0.4s;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 99;
     padding-top: 3rem;
-    padding-bottom: 1rem;
 
     &.slim {
         padding-top: 1rem;
@@ -182,15 +181,33 @@ header {
     }
 }
 
+@media (min-width: 576px) {
+  header {
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 99;
+      padding-bottom: 1rem;
+
+      &.slim {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+          .title {
+              font-size: 36px;
+              small {
+                  font-size: 16px;
+                  margin-left: -20px;
+              }
+          }
+      }
+  }
+}
 @media (max-width: 575.98px) {
     header {
-        position: relative;
         .title {
             padding-bottom: 2rem;
             line-height: 0.4;
-            small {
-                margin-left: 0;
-            }
         }
     }
     main {

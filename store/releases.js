@@ -16,12 +16,12 @@ export const mutations = {
 
 export const actions = {
   getLatest({ commit }) {
-    return this.$axios.get('/api/latest').then(res => {
+    return this.$axios.get('latest').then(res => {
       commit('setLatest', res.data)
     })
   },
   getRelease({ commit }, slug) {
-    return this.$axios.get(`/api/releases/${slug}`).then(res => {
+    return this.$axios.get(`releases/${slug}`).then(res => {
       commit('setCurrent', res.data)
     })
   },
