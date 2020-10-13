@@ -16,22 +16,28 @@
           <h3 class="mb-3">
               {{ release.title }}
           </h3>
-          <div v-html="$md.render(release.content)"></div>
+          <div v-html="$md.render(turndownService.turndown(release.content))"></div>
         </div>
     </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+let TurndownService = require('turndown').default
 
 export default Vue.extend({
+    data() {
+        return {
+           turndownService: new TurndownService(),
+        }
+    },
     async fetch() {
         await this.$store.dispatch('releases/getRelease', this.$route.params['slug'])
     },
     computed: {
         release () {
             return this.$store.state.releases.current
-        }
+        },
     },
 })
 </script>
