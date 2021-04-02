@@ -1,4 +1,3 @@
-import { sampleReleases } from './releasesSamples'
 
 export const state = () => ({
   latest: [],
@@ -7,6 +6,7 @@ export const state = () => ({
 
 export const mutations = {
   setLatest(state, releases) {
+    console.log('releases are', releases[2].issuer.name)
     state.latest = releases;
   },
   setCurrent(state, current) {
@@ -16,8 +16,8 @@ export const mutations = {
 
 export const actions = {
   getLatest({ commit }) {
-    return this.$axios.get('/docs/latest/').then(res => {
-      commit('setLatest', res.data)
+    return this.$axios.get('/docs/').then(res => {
+      commit('setLatest', res.data.results)
     })
   },
   getRelease({ commit }, slug) {

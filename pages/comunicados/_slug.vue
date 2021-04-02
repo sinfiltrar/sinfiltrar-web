@@ -4,19 +4,20 @@
             <b-spinner small class="mr-1" label="Cargando..."></b-spinner>
             Cargando...
         </p>
-        <div class="text-justify content m-auto" v-if="release">
+        <div class="content m-auto" v-if="release">
           <div class="info d-flex mb-4">
             <div class="mr-auto">
-              {{ release.org }}
+              {{ release.issuer ? release.issuer.name : '(aún no asignado a un organismo)' }}
             </div>
             <div>
-              {{ release.date }}
+              {{ release.issued_at }}
             </div>
           </div>
           <h3 class="mb-3">
               {{ release.title }}
           </h3>
-          <div v-html="$md.render(turndownService.turndown(release.content))"></div>
+          <div v-html="$md.render(turndownService.turndown(release.body_html))"></div>
+<!--          <div style="white-space: pre;">{{ release.body_plain}}</div>-->
         </div>
     </div>
 </template>

@@ -10,7 +10,7 @@
         <b-card-group columns class="text-left">
             <b-card
                 :title="release.title"
-                :header="release.org"
+                :header="release.issuer ? release.issuer.name : ''"
                 :key="index"
                 @click="$router.push({name: 'comunicados-slug', params: {slug: release.slug}})"
                 class="release"
@@ -36,14 +36,7 @@ import Vue from 'vue'
 
 export default Vue.extend({
     data() {
-        return {
-            orgs: [
-                {
-                    name: 'Secretaría de Comunicación y Prensa',
-
-                },
-            ],
-        }
+        return {}
     },
     async fetch() {
         await this.$store.dispatch('releases/getLatest')
