@@ -4,13 +4,12 @@
             <b-spinner small class="mr-1" label="Cargando..."></b-spinner>
             Cargando...
         </p>
-        <div class="text-justify content m-auto" v-if="issuer">
+        <div class="content">
             <div class="info d-flex mb-4">
-                <div class="mr-auto">
-                    {{ issuer.name }}
-                </div>
+                <h2 class="">{{ issuer.name }}</h2>
             </div>
         </div>
+        <DocsList v-bind:docs="docs"></DocsList>
     </div>
 </template>
 
@@ -24,11 +23,15 @@ export default Vue.extend({
     },
     async fetch() {
         await this.$store.dispatch('issuers/getOne', this.$route.params['slug'])
+        await this.$store.dispatch('releases/getListByIssuer', this.$route.params['slug'])
     },
     computed: {
-        issuer () {
-            return this.$store.state.issuers.current
-        },
+      issuer () {
+        return this.$store.state.issuers.current
+      },
+      docs () {
+        return this.$store.state.releases.currentList
+      },
     },
 })
 </script>

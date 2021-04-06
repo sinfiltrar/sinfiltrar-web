@@ -7,27 +7,7 @@
             <b-spinner small class="mr-1" label="Cargando..."></b-spinner>
             Cargando...
         </p>
-        <b-card-group columns class="text-left">
-            <b-card
-                :title="release.title"
-                :header="release.issuer ? release.issuer.name : ''"
-                :key="index"
-                @click="$router.push({name: 'comunicados-slug', params: {slug: release.slug}})"
-                class="release"
-                v-for="(release, index) in releases"
-                >
-                <b-card-text>
-                    {{ release.short_text }}
-                </b-card-text>
-                <div class="media" v-if="release.media">
-                    <div :class="'media-' + media.type" v-for="media in release.media">
-                    </div>
-                </div>
-                <template v-slot:footer>
-                    <nuxt-link :to="{name: 'comunicados-slug', params: {slug: release.slug}}" class="card-link">Leer más</nuxt-link>
-                </template>
-            </b-card>
-        </b-card-group>
+        <DocsList :docs="releases"></DocsList>
     </div>
 </template>
 

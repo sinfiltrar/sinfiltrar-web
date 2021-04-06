@@ -17,7 +17,8 @@
               {{ release.title }}
           </h3>
           <div v-html="$md.render(turndownService.turndown(release.body_html))"></div>
-<!--          <div style="white-space: pre;">{{ release.body_plain}}</div>-->
+          <hr>
+          <em>Hasta aquí, el comunicado de {{ release.issuer.name }}</em>
         </div>
     </div>
 </template>

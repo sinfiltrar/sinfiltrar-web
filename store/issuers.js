@@ -19,7 +19,7 @@ export const actions = {
   },
   getOne({ commit }, slug) {
     return this.$axios.get(`/issuers/${slug}`).then(res => {
-      commit('setOne', res.data.results)
+      commit('setOne', res.data)
     })
   },
 }

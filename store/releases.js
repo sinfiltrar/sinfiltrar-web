@@ -6,11 +6,14 @@ export const state = () => ({
 
 export const mutations = {
   setLatest(state, releases) {
-    console.log('releases are', releases[2].issuer.name)
     state.latest = releases;
   },
   setCurrent(state, current) {
     state.current = current;
+  },
+  setCurrentList(state, currentList) {
+    console.log('current list is ', currentList)
+    state.currentList = currentList;
   },
 }
 
@@ -23,6 +26,11 @@ export const actions = {
   getRelease({ commit }, slug) {
     return this.$axios.get(`/docs/${slug}`).then(res => {
       commit('setCurrent', res.data)
+    })
+  },
+  getListByIssuer({ commit }, issuerSlug) {
+    return this.$axios.get(`/docs/?issuer=${issuerSlug}`).then(res => {
+      commit('setCurrentList', res.data.results)
     })
   },
 }
