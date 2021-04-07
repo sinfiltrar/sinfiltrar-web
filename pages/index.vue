@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <LastReleases />
-        <IssuersList />
-    </div>
+	<div>
+		<LastReleases />
+		<IssuersList />
+	</div>
 </template>
