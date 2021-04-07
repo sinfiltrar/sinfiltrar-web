@@ -4,15 +4,11 @@
 			<div class="container">
 				<h1 class="title">
 					<nuxt-link to="/">sinfiltr.ar</nuxt-link>
-					<small>(beta)</small>
+					<small>BETA</small>
 				</h1>
-				<h2 class="subtitle">
-					Todas las noticias de los organismos oficiales en un sólo
-					lugar
-				</h2>
 			</div>
 		</header>
-		<main :class="{ container: true, pad: !scrolled }">
+		<main class="container">
 			<Nuxt />
 		</main>
 		<footer>
@@ -63,7 +59,6 @@ export default Vue.extend({
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 html {
@@ -97,27 +92,25 @@ body {
 
 main {
 	transition: 0.8s;
-	padding-top: 9rem;
 	flex: 1 0 auto;
-	&.pad {
-		padding-top: 18rem;
-	}
+	padding-top: 6rem;
 }
 
 .title {
-	font-family: 'Dosis', sans-serif;
 	display: block;
+	padding-top: 0.5rem;
+	font-size: 2rem;
+	font-family: 'Dosis', sans-serif;
 	font-weight: 200;
-	font-size: 100px;
+	line-height: 3rem;
 	letter-spacing: 1px;
 	transition: 0.4s;
 
 	a {
-		color: #fff;
+		color: #209cee;
 		text-decoration: none;
 		transition: 0.4s;
 		display: inline-block;
-
 		&::after {
 			content: '';
 			width: 0;
@@ -126,62 +119,27 @@ main {
 			background: #fff;
 			transition: 300ms;
 		}
-
 		&:hover::after {
 			width: 100%;
 		}
 	}
-}
 
-.title small {
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 400;
-	font-size: 36px;
-	color: #6abef7;
-	transition: 0.4s;
-}
-
-.card-title {
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 300;
-}
-
-.subtitle {
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 300;
-	font-size: 25px;
-	color: #35495e;
-	word-spacing: 5px;
-	padding-bottom: 15px;
-	transition: 0.4s;
+	small {
+		font-weight: 900;
+		font-size: 0.8rem;
+		color: #6abef7;
+		transition: 0.4s;
+	}
 }
 
 /* sticky header with transitions */
 
 header {
-	background-color: #209cee;
+	background-color: #fff;
 	transition: 0.4s;
-	padding-top: 3rem;
-
+	padding: 0;
 	&.slim {
-		padding-top: 1rem;
-		padding-bottom: 1rem;
-		.title {
-			font-size: 36px;
-			small {
-				font-size: 16px;
-				margin-left: 0;
-			}
-			a::after {
-				height: 1px;
-			}
-		}
-		.subtitle {
-			opacity: 0;
-			height: 0;
-			padding-bottom: 0;
-			margin-bottom: 0;
-		}
+		box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 	}
 }
 
@@ -192,33 +150,6 @@ header {
 		width: 100%;
 		top: 0;
 		z-index: 99;
-		padding-bottom: 1rem;
-
-		&.slim {
-			padding-top: 1rem;
-			padding-bottom: 1rem;
-			.title {
-				font-size: 36px;
-				small {
-					font-size: 16px;
-					margin-left: -20px;
-				}
-			}
-		}
-	}
-}
-@media (max-width: 575.98px) {
-	header {
-		.title {
-			padding-bottom: 2rem;
-			line-height: 0.4;
-		}
-	}
-	main {
-		padding-top: 2rem;
-		&.pad {
-			padding-top: 2rem;
-		}
 	}
 }
 
