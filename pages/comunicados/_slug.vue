@@ -23,8 +23,21 @@
 			<div
 				v-html="$md.render(turndownService.turndown(release.body_html))"
 			></div>
-			<hr />
-			<em>Hasta aquí, el comunicado de {{ release.issuer.name }}</em>
+
+			<div class="end-mark">
+				Fin del comunicado
+				<span v-if="release.issuer"
+					>de
+					<nuxt-link
+						:to="{
+							name: 'organismos-slug',
+							params: { slug: release.issuer.slug },
+						}"
+						class="card-link"
+						>{{ release.issuer.name }}</nuxt-link
+					></span
+				>
+			</div>
 		</div>
 	</div>
 </template>
@@ -68,6 +81,17 @@ h3 {
 	img {
 		max-width: 100%;
 		max-height: 100%;
+	}
+}
+
+.end-mark {
+	color: #666;
+	font-size: 0.8rem;
+	border-top: solid 1px #aaa;
+	margin-top: 2rem;
+	margin-bottom: 4rem;
+	a {
+		color: #333;
 	}
 }
 </style>
