@@ -14,7 +14,7 @@
 					}}
 				</div>
 				<div>
-					{{ release.issued_at }}
+					{{ release.issued_at | formatDate }}
 				</div>
 			</div>
 			<h3 class="mb-3">
@@ -85,6 +85,7 @@ h3 {
 }
 
 .end-mark {
+	text-align: center;
 	color: #666;
 	font-size: 0.8rem;
 	border-top: solid 1px #aaa;
