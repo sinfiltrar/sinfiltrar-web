@@ -1,5 +1,6 @@
 export const state = () => ({
 	latest: [],
+	searchResults: [],
 	current: null,
 	currentList: null,
 })
@@ -13,6 +14,9 @@ export const mutations = {
 	},
 	setCurrentList(state, currentList) {
 		state.currentList = currentList
+	},
+	setSearch(state, searchResults) {
+		state.searchResults = searchResults
 	},
 }
 
@@ -30,6 +34,11 @@ export const actions = {
 	getListByIssuer({ commit }, issuerSlug) {
 		return this.$axios.get(`/docs/?issuer=${issuerSlug}`).then((res) => {
 			commit('setCurrentList', res.data.results)
+		})
+	},
+	search({ commit }, searchQuery) {
+		return this.$axios.get(`/docs/?q=${searchQuery}`).then((res) => {
+			commit('setSearch', res.data)
 		})
 	},
 }

@@ -6,6 +6,20 @@
 					<nuxt-link to="/">sinfiltr.ar</nuxt-link>
 					<small>BETA</small>
 				</h1>
+				<b-form inline class="search">
+					<b-input-group>
+						<b-form-input
+							v-model="q"
+							placeholder="Buscar"
+							@keydown.enter.native.prevent="search"
+						></b-form-input>
+						<b-input-group-append>
+							<b-button :class="secondary" @click="search"
+								>Buscar</b-button
+							>
+						</b-input-group-append>
+					</b-input-group>
+				</b-form>
 			</div>
 		</header>
 		<main class="container">
@@ -33,6 +47,7 @@ export default Vue.extend({
 	data() {
 		return {
 			scrolled: false,
+			q: this.$route.query.q,
 		}
 	},
 	created() {
@@ -52,6 +67,12 @@ export default Vue.extend({
 					document.body.scrollTop > 80 ||
 					document.documentElement.scrollTop > 80
 			}
+		},
+		search() {
+			this.$router.push({
+				name: 'search',
+				query: { q: this.q, time: '' + Date.now() },
+			})
 		},
 	},
 })
@@ -132,6 +153,11 @@ main {
 	}
 }
 
+.search {
+	text-align: right;
+	justify-content: flex-end;
+}
+
 /* sticky header with transitions */
 
 header {
@@ -140,6 +166,16 @@ header {
 	padding: 0;
 	&.slim {
 		box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+	}
+	.container {
+		display: flex;
+		justify-content: flex-end;
+		.title {
+			flex: 1;
+		}
+		.search {
+			flex: 1;
+		}
 	}
 }
 
